@@ -1,78 +1,126 @@
 .homepage-container {
-    position: relative; /* Позволяет дочерним элементам позиционироваться относительно этого контейнера */
-    height: 100vh; /* Высота контейнера равна высоте экрана */
-    width: 100%; /* Ширина контейнера равна ширине экрана */
-    overflow: hidden; /* Обрезает содержимое, выходящее за пределы контейнера */
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
   
 .image-container img {
-    width: 100%; /* Изображение занимает 100% ширины контейнера */
-    height: 100%; /* Изображение занимает 100% высоты контейнера */
-    object-fit: cover; /* Изображение масштабируется и обрезается для заполнения контейнера, сохраняя пропорции */
-    position: absolute; /* Позволяет разместить изображение на фоне без влияния на другие элементы */
-    top: 0; /* Изображение выровнено по верхнему краю контейнера */
-    left: 0; /* Изображение выровнено по левому краю контейнера */
-    z-index: -1; /* Изображение перемещается на задний план, чтобы текст и кнопки отображались поверх */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
   
 .text-container {
-    position: absolute; /* Контейнер для текста и кнопок позиционируется относительно родительского контейнера */
-    top: 30%; /* Верхняя граница контейнера находится на 30% от верха родительского контейнера */
-    width: 120%; /* Ширина контейнера равна 120% от родительского контейнера */
-    height: 120%; /* Высота контейнера равна 120% от родительского контейнера */
-    background-color: rgba(0, 0, 0, 0.8); /* Прозрачный черный фон (черный с прозрачностью 0.8) */
-    color: #fff; /* Цвет текста внутри контейнера — белый */
-    z-index: 1; /* Контейнер размещается поверх фона */
-    border-radius: 50%; /* Применяет округлые края, чтобы создать эллиптическую форму */
-    display: flex; /* Используется для выравнивания элементов внутри контейнера */
-    justify-content: center; /* Горизонтальное выравнивание элементов по центру */
-    align-items: center; /* Вертикальное выравнивание элементов по центру */
-    transform: translate(-8%, 0); /* Перемещение контейнера на 8% влево, чтобы он был симметричен на экране */
+    position: absolute;
+    top: 30%;
+    width: 120%;
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    z-index: 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-8%, 0);
 }
   
 .content-wrapper {
-    text-align: center; /* Выравнивание текста по центру */
-    position: relative; /* Позволяет использовать top для смещения элемента */
-    top: -200px; /* Поднимает текст и кнопки выше на 200 пикселей */
+    text-align: center;
+    position: relative;
+    top: -200px;
 }
   
 .buttons {
-    margin-bottom: 30px; /* Добавляет отступ снизу между кнопками и текстом */
+    margin-bottom: 30px;
 }
   
 .button {
-    background-color: #fff; /* Белый фон кнопки */
-    color: #000; /* Черный цвет текста на кнопке */
-    border: none; /* Убирает стандартную рамку кнопки */
-    padding: 10px 20px; /* Добавляет внутренние отступы для увеличения размеров кнопки */
-    margin: 0 10px; /* Добавляет горизонтальные отступы между кнопками */
-    cursor: pointer; /* Курсор мыши меняется на указатель при наведении */
-    font-size: 16px; /* Размер шрифта на кнопке */
-    transition: background-color 0.3s ease; /* Плавное изменение фона при наведении */
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
   
 .button:hover {
-    background-color: #ddd; /* Серый фон при наведении на кнопку */
+    background-color: #ddd;
 }
   
 .description {
-    max-width: 600px; /* Ограничивает максимальную ширину текстового блока для лучшей читаемости */
+    max-width: 600px;
 }
   
-@media screen and (max-width: 768px) {
-    .text-container {
-        width: 200%; /* Увеличивает ширину контейнера на мобильных устройствах */
-        height: 200%; /* Увеличивает высоту контейнера на мобильных устройствах */
-        top: 25%; /* Смещает контейнер чуть выше на мобильных устройствах */
-        transform: translate(-40%, -20%); /* Сильнее смещает контейнер для мобильных устройств */
-    }
-  
-    .description {
-        font-size: 14px; /* Уменьшает размер шрифта текста на мобильных устройствах */
-    }
-  
-    .button {
-        font-size: 14px; /* Уменьшает размер шрифта кнопок на мобильных устройствах */
-        padding: 8px 16px; /* Уменьшает внутренние отступы кнопок на мобильных устройствах */
-    }
+/* модальное окно */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transform: scale(0.9); 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    visibility: hidden; 
+}
+
+.modal-visible {
+    opacity: 1; 
+    transform: scale(1); 
+    visibility: visible; 
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative; 
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
 }
